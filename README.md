@@ -1,6 +1,10 @@
 # Next.js User Management Dashboard
 
 
+https://github.com/SahilDahekar/user_dashboard/assets/97726887/1442cc30-0f3c-42cf-aa6a-07da3f9b3831
+
+
+
 This is a user management dashboard built with Next.js. It allows you to view user details, generate reports, and more.
 
 ## Getting Started
