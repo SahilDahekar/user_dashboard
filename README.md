@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js User Management Dashboard
+
+This is a user management dashboard built with Next.js. It allows you to view user details, generate reports, and more.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to run the app on your local machine.
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v18.17 or later but v20.9.0 recommended)
+- [npm](https://www.npmjs.com/) (v7 or later but v10.10 recommended)
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/SahilDahekar/user_dashboard.git
+cd user-dashboard
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run the app in Development mode
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Alternatively , Run the app in Production mode
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Visit http://localhost:3000 in your browser to see the app.
 
-## Learn More
+### Usage
 
-To learn more about Next.js, take a look at the following resources:
+- Create account at "Account" page.
+- Navigate to the "User Details" page to view a list of users.
+- Click on a user's row to see detailed information in a modal.
+- Use the search bar to filter users based on ID, username, email, phone, or creation date.
+- Generate reports for individual users by clicking the "Generate Report" button in the user details modal.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The project is organized with the following directory structure:
 
-## Deploy on Vercel
+- **`/app`**: Contains Next.js pages for routing.
+- **`/components`**: Reusable React components.
+- **`/styles`**: CSS stylesheets for styling components.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
