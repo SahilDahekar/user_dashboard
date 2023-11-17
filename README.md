@@ -1,5 +1,6 @@
 # Next.js User Management Dashboard
 
+
 This is a user management dashboard built with Next.js. It allows you to view user details, generate reports, and more.
 
 ## Getting Started
@@ -56,5 +57,9 @@ The project is organized with the following directory structure:
 - **`/app`**: Contains Next.js pages for routing.
 - **`/components`**: Reusable React components.
 - **`/styles`**: CSS stylesheets for styling components.
+
+### Lighthouse Score 
+
+<img width="948" alt="Screenshot 2023-11-17 210746" src="https://github.com/SahilDahekar/user_dashboard/assets/97726887/32b9f79c-7384-4734-89ed-78130d7b0ca6">
 
 
