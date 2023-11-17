@@ -1,10 +1,13 @@
+// Defining client side component
 "use client"
 import React, { useState } from 'react';
 import TableRow from '../components/TableRow';
 import ModalDetails from '../components/ModalDetails';
 import ModalReportGenerated from '../components/ModalReportGenerated';
 
+// Function to get user data
 function getUsers(){
+  // User data array
     const users = [
         {
           id: 1,
@@ -81,34 +84,37 @@ function getUsers(){
     return users;
 }
 
+// Userdetails component for displaying and managing user details page
 export default function Userdetails() {
-  const [searchText, setSearchText] = useState(''); // New state variable to store search term
-  const [showModal, setShowModal] = useState(false); // State for managing modal visibility
-  const [selectedUser, setSelectedUser] = useState(null); // State for storing the selected user
+  // State variables for managing search text, modal visibility, selected user, and report generated modal
+  const [searchText, setSearchText] = useState(''); 
+  const [showModal, setShowModal] = useState(false); 
+  const [selectedUser, setSelectedUser] = useState(null); 
   const [reportGeneratedModal, setReportGeneratedModal] = useState(false);
 
-  const users = getUsers(); // Fetch all users initially
+  //Fetch user data
+  const users = getUsers(); 
 
+  // Handle user click to show details modal
   const handleUserClick = (user) => {
-    // Set the selected user and show the modal
     setSelectedUser(user);
     setShowModal(true);
   };
   
+  // Handle report generation
   const handleReportGeneration = () => {
-    // Generate the report for the selected user (logic for generating the report goes here)
     console.log(`Generating report for user ${selectedUser.username}`);
     handleCloseModal();
     setReportGeneratedModal(true);
   };
 
+  // Handle closing the report generated modal
   const handleCloseReportGeneratedModal = () => {
-    // Hide the report generated modal
     setReportGeneratedModal(false);
   };
 
+  // Handle closing the details modal
   const handleCloseModal = () => {
-    // Hide the modal and reset the selected user
     setShowModal(false);
     setSelectedUser(null);
   };
@@ -118,6 +124,7 @@ export default function Userdetails() {
       <h2 className="text-3xl lg:text-4xl font-bold text-background mt-6 mb-4">User Details</h2>
       <hr />
       <div className="md:flex justify-start items-center mt-8 mb-6">
+        {/* Search input */}
           <label className="pr-2 md:px-3 py-2" htmlFor="search">
             Search :
           </label>
@@ -132,17 +139,22 @@ export default function Userdetails() {
           />
       </div>
 
+
+      {/* Display details modal if showModal is true */}
       {showModal && (
         <ModalDetails user={selectedUser} handleCloseModal={() => handleCloseModal()} handleReportGeneration={() => handleReportGeneration()} />
       )}
 
+      {/* Display report generated modal if reportGeneratedModal is true */}
       {reportGeneratedModal && (
         <ModalReportGenerated handleCloseModal={() => handleCloseReportGeneratedModal()} />
       )}
 
+      {/* User table */}
       <div className="mb-6 overflow-y-scroll h-60">
         <table className="min-w-full">
           <thead className="sticky top-0 bg-foreground">
+            {/* Table headers */}
             <tr>
               <th className="border-b py-2 px-3 text-left font-medium text-gray-400 border-gray-300">ID</th>
               <th className="border-b py-2 px-3 text-left font-medium text-gray-400 border-gray-300">Username</th>
@@ -153,9 +165,8 @@ export default function Userdetails() {
           </thead>
 
           <tbody>
-            {
-              // Filter users based on current search state
-              users.filter((user) => {
+            {/* Map through and render table rows based on filtered users */}
+            {users.filter((user) => {
                 if (!searchText) return true; // Show all users if search term is empty
                 return user.username.toLowerCase().includes(searchText.toLowerCase()) ||
                   user.email.toLowerCase().includes(searchText.toLowerCase()) ||

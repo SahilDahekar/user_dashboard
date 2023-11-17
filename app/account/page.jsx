@@ -1,20 +1,25 @@
+// Defining client side component
 "use client"
 import { useState } from "react";
 import SubmitButton from "../components/SubmitButton";
 import { useRouter } from 'next/navigation';
 import ModalLoginSuccess from "../components/ModalLoginSuccess";
 
+// Account component for creating user accounts
 export default function Account() {
   const router = useRouter();
+  // State for controlling the display of the login success modal
   const [showLoginSuccessModal, setShowLoginSuccessModal] = useState(false);
 
+  // Handle form submission
   function handleSubmit(event) {
     console.log("Submitting form...");
 
     // Simulating a successful login for demonstration purposes
-    setShowLoginSuccessModal(true);// Show the success modal after 2 seconds
+    setShowLoginSuccessModal(true);
   }
 
+  // Handle closing the login success modal
   const handleCloseLoginSuccessModal = () => {
     setShowLoginSuccessModal(false);
     router.push('/userdetails');
@@ -27,10 +32,12 @@ export default function Account() {
       </h2>
       <hr />
       <div className="flex my-8 w-72">
+        {/* Account creation form */}
         <form
           className="flex flex-col w-full justify-center items-start gap-5"
           action={handleSubmit}
         >
+          {/* Username input field */}
           <label className="w-full">
             <p className="text-sm font-semibold mb-1">Username</p>
             <input
@@ -42,6 +49,7 @@ export default function Account() {
               required
             />
           </label>
+          {/* Password input field */}
           <label className="w-full">
             <p className="text-sm font-semibold mb-1">Password</p>
             <input
@@ -56,6 +64,7 @@ export default function Account() {
           <SubmitButton />
         </form>
       </div>
+      {/* Display login success modal when state is true */}
       {showLoginSuccessModal && (
         <ModalLoginSuccess handleCloseLoginSuccessModal={handleCloseLoginSuccessModal} />
       )}
